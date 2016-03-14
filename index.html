@@ -1,30 +1,42 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TX ALC SALES</title>
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
 <body>
+  <div class="container">
+
+        <div class="row" id="data-rows">
+          <!--
+          <div class="col-md-12 well">
+            Name of Bar<br />
+            Total Sales
+          </div>
+          <div class="col-md-12 well">
+            Name of Bar<br />
+            Total Sales
+          </div>
+          <div class="col-md-12 well">
+            Name of Bar<br />
+            Total Sales
+          </div>
+          <div class="col-md-12 well">
+            Name of Bar<br />
+            Total Sales
+          </div>
+          <div class="col-md-12 well">
+            Name of Bar<br />
+            Total Sales
+          </div>
+          <div class="col-md-12 well">
+            Name of Bar<br />
+            Total Sales
+          </div>
+        -->
+        </div>
+
+</div>
 <script src="/js/d3.min.js"></script>
-<script>
-
-/*d3.select("body").append("span")
-    .text("Hello, world!");*/
-
-/*d3.csv("/csv/bev02-23.csv")
-    .row(function(d) { return {key: d.key, value: +d.value}; })
-    .get(function(error, rows) { console.log(rows); });*/
-
-/*d3.csv("/csv/bev02-23.csv", function(data) {
-  console.log(data[0]);
-});*/
-
-d3.csv("/csv/bev02-23.csv", function (data) {
-
-  data.forEach(function(d) {
-    d.reportedtax = +d.reportedtax;
-  });
-
-  var max = d3.max(data, function(d) { return d.reportedtax; });
-
-  console.log(max);
-
-});
-
-</script>
+<script src="/js/elpaso.js"></script>
