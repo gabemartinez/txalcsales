@@ -45,5 +45,13 @@
 });*/
 
 d3.csv("/csv/bev02-23.csv", function (error, data) {
-  console.log(data); // this will output the data contained in your csv
+
+  data.forEach(function(d) {
+      //d.date = parseDate(d.date);
+      if (d.locationcountycode == "071"){
+        d.tradename = d.tradename;
+        console.log("Name: " + d.tradename + "Address: " + d.locationaddress + "City: " + d.locationcity + "Zip Code: " + d.locationzipcode + "Reported Tax: " + d.reportedtax);
+      }
+  });
+
 });
