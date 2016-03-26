@@ -1,5 +1,6 @@
 # txalcsales
 Texas Mixed Beverage Gross Receipts Tax Receipts - A D3.js Project
+
 [Data Source](http://comptroller.texas.gov/taxinfo/taxfiles.html)
 
 # Using D3
