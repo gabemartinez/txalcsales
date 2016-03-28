@@ -43,7 +43,7 @@ var svg = d3.select("#main-container")
 
 svg.call(tip);
 
-d3.csv("../csv/bev01-21.csv", type, function(error, data) {
+d3.csv("../csv/bev03-24.csv", type, function(error, data) {
 
     // x domain
     x.domain([0, 2000]);
