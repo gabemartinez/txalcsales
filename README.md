@@ -10,4 +10,4 @@ Texas Mixed Beverage Gross Receipts Tax Receipts - A D3.js Project
 python -m SimpleHTTPServer 8888
 
 # View WIP-App
-[Haz click aqui.](http://d3.martinezgabriel.com)
+[Click Here](http://txalcsales.martinezgabriel.com)
