@@ -6,20 +6,20 @@ var margin = {top: 40, right: 20, bottom: 30, left: 60},
 var ourFormat = d3.format(",.2r");
 
 //x axis
-// var x = d3.scale.ordinal()
-//     .rangeRoundBands([0, width], 1);
+var x = d3.scale.ordinal().rangeRoundBands([0, width], .5);
 
-var x = d3.scale.linear()
-    .range([0, 0]);
+// var x = d3.scale.linear()
+//     .range([0, 0]);
 
+// y axis
+var y = d3.scale.linear().range([height, 0]);
+
+// x axis
 var xAxis = d3.svg.axis()
     .scale(x)
     .orient("bottom");
 
 // y axis
-var y = d3.scale.linear()
-    .range([height, 0]);
-
 var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left")
@@ -45,14 +45,21 @@ svg.call(tip);
 
 d3.csv("../csv/bev03-24.csv", type, function(error, data) {
 
+  data.forEach(function(d) {
+    d.locationcity = d.locationcity;
+    d.reportedtax = +d.reportedtax;
+  });
+
     // x domain
-    x.domain([0, 2000]);
+    //x.domain([0, 2000]);
     //x.domain(data.map(function(d) { return d.tradename.trim(); }));
     //x.domain(data.map(function(d) { return d.tradename; }));
 
     // y domain
-    y.domain([0, 20000]);
+    //y.domain([0, 20000]);
     //y.domain([0, d3.max(data, function(d) { return d.reportedtax; })]);
+    x.domain(data.map(function(d) { return d.locationcity; }));
+    y.domain([0, d3.max(data, function(d) { return d.reportedtax; })]);
 
     // x axis
     svg.append("g")
@@ -79,8 +86,9 @@ d3.csv("../csv/bev03-24.csv", type, function(error, data) {
         .filter(function(d){ return d.locationcountycode ==  "071"; })
         .filter(function(d){ return d.reportedtax > 0; })
         .attr("class", "bar")
-        .attr("x", function(d, i) { return (i*2.5); })
-        .attr("width", 4)
+        //.attr("x", function(d) { return x(d.locationcity); })
+        .attr("x", function(d, i) { return i; })
+        .attr("width", x.rangeBand())
         .attr("y", function(d) { return y(d.reportedtax); })
         .attr("height", function(d) { return height - y(d.reportedtax); })
         .on('mouseover', tip.show)
