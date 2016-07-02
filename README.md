@@ -1,3 +1,6 @@
+# Update
+Using Chart.js library now. [See repo here].(https://github.com/gabemartinez/txalcsales-chartjs)
+
 # txalcsales
 Texas Mixed Beverage Gross Receipts Tax Receipts - A D3.js Project
 
